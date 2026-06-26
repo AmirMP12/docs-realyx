@@ -12,10 +12,10 @@ PAGES['home'] = () => `
     <span class="badge badge--purple">v1.0.0</span>
     <span class="badge badge--green">Testnet Live</span>
   </div>
-  <h1 class="home-hero__title">Realyx<br><span class="gradient">Documentation</span></h1>
-  <p class="home-hero__desc">Realyx is a decentralized perpetual futures exchange for Real World Assets, built on Conflux eSpace. Trade crypto, equities, and commodities with up to 10x leverage — non-custodial, zero KYC, MEV-resistant.</p>
+  <h1 class="home-hero__title">Realyx <span class="gradient">Documentation</span></h1>
+  <p class="home-hero__desc">Realyx is a decentralized perpetual futures exchange for Real World Assets, built on Conflux eSpace. Trade crypto, equities, and commodities with up to 100x leverage — non-custodial, zero KYC, MEV-resistant.</p>
   <div class="home-hero__actions">
-    <a href="https://realyx.vercel.app/" target="_blank" rel="noopener" class="btn-primary">
+    <a href="https://app.realyx.example/" target="_blank" rel="noopener" class="btn-primary">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Launch App
     </a>
@@ -26,7 +26,7 @@ PAGES['home'] = () => `
   </div>
 </div>
 <div class="stats-row">
-  <div class="stat-card"><div class="stat-card__value">10x</div><div class="stat-card__label">Default Max Leverage</div></div>
+  <div class="stat-card"><div class="stat-card__value">100x</div><div class="stat-card__label">Max Leverage</div></div>
   <div class="stat-card"><div class="stat-card__value">8h</div><div class="stat-card__label">Funding Interval</div></div>
   <div class="stat-card"><div class="stat-card__value">&lt;3s</div><div class="stat-card__label">Order Execution</div></div>
   <div class="stat-card"><div class="stat-card__value">71</div><div class="stat-card__label">Conflux Testnet Chain ID</div></div>
@@ -42,14 +42,25 @@ PAGES['home'] = () => `
 </div>
 <h2>Network &amp; Contracts</h2>
 <table>
-  <thead><tr><th>Contract</th><th>Address</th><th>Explorer</th></tr></thead>
+  <thead><tr><th>Contract</th><th>Role</th><th>Address</th><th>Explorer</th></tr></thead>
   <tbody>
-    <tr><td>TradingCore</td><td><code>0x64f277...7Df3</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x64f277f73bfc81Ad80286a4266c0E0613d867Df3" target="_blank">ConfluxScan ↗</a></td></tr>
-    <tr><td>VaultCore</td><td><code>0xB5C983...4e714</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xB5C983d038caA21f4a9520b0EFAb2aD71DE4e714" target="_blank">ConfluxScan ↗</a></td></tr>
-    <tr><td>PositionToken</td><td><code>0x4368b5...fa8B</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x4368b5741A105c1ACE50ad98581fDa050685fa8B" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>TradingCore</td><td>Order creation, execution, liquidation</td><td><code>0xc8A658...8c76</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xc8A6585dFBe2833ed093E557D36DC8Fe136a8c76" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>TradingCoreViews</td><td>Read-only companion for view calls</td><td><code>0xb5c01f...9AbC5</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xb5c01fb09F2B9f62A4907dDB41c216419e79AbC5" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>VaultCore</td><td>LP liquidity, insurance tranche, borrow / repay</td><td><code>0x98E011...05F67</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x98E011A8782aF36C5Ad6051bC54B86a7c0705F67" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>PositionToken</td><td>ERC-721 NFT representing each open position</td><td><code>0xF520CC...C178c</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xF520CC4B305553A9b6D391571c303E45AacC178c" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>OracleAggregator</td><td>Pyth feed integration, staleness checks</td><td><code>0x9d027a...9e6a9</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x9d027ab66F396176C188946cE49BA9061679e6a9" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>MarketCalendar</td><td>Trading-hours enforcement for RWA markets</td><td><code>0xDE6a4f...529e</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xDE6a4fa0e8DE4D3f0792010Fd49AbdeF8915529e" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>DividendManager</td><td>Corporate-action settlement for equity positions</td><td><code>0xA84104...e9B0b</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xA84104C6E2Ed7455a606A3439aF80863112e9B0b" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>ComplianceManager</td><td>Optional allow-list / per-market access gating</td><td><code>0xD694F0...B781D7</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xD694F0BC86e1f24439037A221f7c4e3beDB781D7" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>DividendKeeper</td><td>Keeper that settles dividend adjustments</td><td><code>0x5CCdb6...58010</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x5CCdb637C1Fa5D06D7F666BDBb62F3Ad12A58010" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>Mock USDT0</td><td>Testnet collateral token (mintable in app Settings)</td><td><code>0x85B9BA...fC73A</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x85B9BA60D6Aef728c0Ea9C9f6709D31707dfC73A" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>Pyth</td><td>Pyth Network on-chain contract (VAA verifier)</td><td><code>0xDd24F8...bd21</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>CollateralRegistry</td><td>Multi-collateral registry (haircuts, price feeds)</td><td><code>0x0f5cAC...7054</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x0f5cAC8a3BC4E61ABA1d547D9A2C1DFA5A087054" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>CopyRegistry</td><td>Copy-trading lead / follower registry</td><td><code>0xf09b2f...A001</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xf09b2fa210Fe2dbE17287B331E7A93c58Bb5A001" target="_blank">ConfluxScan ↗</a></td></tr>
+    <tr><td>ReferralRegistry</td><td>Referral codes, discounts, rebates</td><td><code>0x5FbD3a...14a8</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x5FbD3aBfBdB667e543B23B80f34Fa7167C1514a8" target="_blank">ConfluxScan ↗</a></td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--text-3)">Network: Conflux eSpace Testnet &middot; Chain ID: 71 &middot; RPC: <code>https://evmtestnet.confluxrpc.com</code></p>
+<p style="font-size:13px;color:var(--text-3)">Network: Conflux eSpace Testnet &middot; Chain ID: 71 &middot; RPC: <code>https://evmtestnet.confluxrpc.com</code> &middot; Source of truth: <code>deployment/confluxTestnet.json</code>. CopyRegistry, ReferralRegistry &amp; CollateralRegistry are deployed and published in <code>deployment/confluxTestnet.json</code>.</p>
 <div class="callout callout--warning"><div class="callout__icon">⚠️</div><div class="callout__body"><div class="callout__title">Risk disclosure</div><p>Realyx is experimental, derivatives-adjacent software currently deployed on Conflux eSpace Testnet only. Nothing in this documentation is financial advice. Trading perpetual futures with leverage carries material smart-contract, oracle, liquidation, and jurisdictional risk, and you can lose more than your initial collateral. Liquidity provider yields are variable, not guaranteed, and depend on net trader PnL and protocol activity. The protocol has not yet undergone a third-party security audit.</p></div></div>
 <h2>Community</h2>
 <div class="card-grid">
@@ -82,7 +93,7 @@ PAGES['what-is-realyx'] = () => `
   <h1 class="page-header__title">What is Realyx?</h1>
   <p class="page-header__desc">A decentralized perpetual futures exchange for Real World Assets and crypto, built on Conflux eSpace.</p>
 </div>
-<p>Realyx is an <strong>intent-based perpetual futures DEX</strong> deployed on Conflux eSpace. It lets traders open leveraged long and short positions on RWA markets — stocks, commodities, forex — and crypto pairs from a single unified interface, while liquidity providers earn real yield by acting as the counterparty through a shared stablecoin vault.</p>
+<p>Realyx is an <strong>intent-based perpetual futures DEX</strong> deployed on Conflux eSpace. It lets traders open leveraged long and short positions on RWA markets — tokenized stocks and commodities — alongside crypto pairs from a single unified interface, while liquidity providers earn real yield by acting as the counterparty through a shared stablecoin vault. (Forex markets are on the roadmap.)</p>
 <div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Currently on Testnet</div><p>Realyx is deployed on Conflux eSpace Testnet (Chain ID 71). No real funds are at risk. Mainnet launch is planned for Phase 2.</p></div></div>
 <h2>The problem Realyx solves</h2>
 <p>Financial globalization is fragmented. Centralized platforms gatekeep access to global equities through geographical barriers, account minimums, and KYC hurdles. DeFi platforms have historically been limited to crypto assets due to oracle latency and front-running vulnerabilities.</p>
@@ -96,7 +107,7 @@ PAGES['what-is-realyx'] = () => `
   <div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Submit signed intent</h3><p>You place an order by submitting a signed intent. Collateral is locked in the smart contract, but the order isn't executed yet.</p></div></div>
   <div class="step-item"><div class="step-num">2</div><div class="step-body"><h3>Keeper fetches fresh oracle price</h3><p>Decentralized Keeper nodes monitor the blockchain for pending intents and fetch the latest signed price data from Pyth Network's Hermes API.</p></div></div>
   <div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Atomic execution eliminates MEV</h3><p>The Keeper submits a single transaction that updates the oracle price and executes your order atomically. No front-running possible.</p></div></div>
-  <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Vault acts as counterparty</h3><p>Your position is backed by the shared USDC vault. If you profit, the vault pays out. LPs earn fees from this activity.</p></div></div>
+  <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Vault acts as counterparty</h3><p>Your position is backed by the shared USDT0 vault. If you profit, the vault pays out. LPs earn fees from this activity.</p></div></div>
 </div>
 <h2>What makes Realyx different</h2>
 <table>
@@ -112,11 +123,11 @@ PAGES['what-is-realyx'] = () => `
 </table>
 <h2>Supported markets</h2>
 <ul>
-  <li><strong>Crypto:</strong> CFX-USD, BTC-USD, ETH-USD</li>
-  <li><strong>Tokenized equities:</strong> TSLAX-USD, NVDAX-USD, AAPLX-USD, METAX-USD, GOOGLX-USD, NFLXX-USD, COINX-USD, MCDX-USD, CRCLX-USD</li>
+  <li><strong>Crypto:</strong> CFX-USD, BTC-USD, ETH-USD (plus crypto-adjacent equities COINX-USD, CRCLX-USD)</li>
+  <li><strong>Tokenized equities:</strong> NVDAX-USD, TSLAX-USD, AAPLX-USD, METAX-USD, GOOGLX-USD, NFLXX-USD, MCDX-USD, HOODX-USD, MSTRX-USD, SPYX-USD</li>
   <li><strong>Tokenized commodities:</strong> XAUT-USD (Tether Gold)</li>
 </ul>
-<p>The full active set is defined per deployment in <code>scripts/setup-market.ts</code> and surfaced by <code>GET /api/markets</code>.</p>
+<p>The full active set is defined per deployment in <code>scripts/setup-market.ts</code> / <code>backend/src/constants/markets.ts</code> and surfaced by <code>GET /api/markets</code>.</p>
 `;
 
 PAGES['key-features'] = () => `
@@ -128,13 +139,22 @@ PAGES['key-features'] = () => `
 <h2>NFT Position Tokens</h2>
 <p>Every open leveraged trade is wrapped as an <strong>ERC-721 NFT</strong> via <code>PositionToken.sol</code>. Transfer, sell, gift, or collateralize your active positions across any Web3 ecosystem.</p>
 <h2>Shared Liquidity Vault</h2>
-<p>LPs deposit USDC into <code>VaultCore.sol</code> and receive <code>realyxLP</code> share tokens. The vault acts as counterparty to all trades. LPs earn from trading fees, borrow fees, funding rates, and liquidation penalties — with no impermanent loss.</p>
+<p>LPs deposit USDT0 into <code>VaultCore.sol</code> and receive <code>realyxLP</code> share tokens. The vault acts as counterparty to all trades. LPs earn from trading fees, borrow fees, funding rates, and liquidation penalties — with no impermanent loss.</p>
 <h2>MEV-Resistant Intent Execution</h2>
 <p>Two-phase commit makes front-running structurally impossible. Phase 1: <code>createOrder()</code> locks collateral. Phase 2: Keeper fetches fresh Pyth price and executes atomically. The execution price is determined at execution time, not submission time.</p>
 <h2>Insurance Fund</h2>
-<p>A dedicated USDC pool within <code>VaultCore</code> absorbs bad debt in extreme market conditions before the main LP pool is affected. Insurance stakers earn premium yield for providing this backstop.</p>
+<p>A dedicated USDT0 pool within <code>VaultCore</code> absorbs bad debt in extreme market conditions before the main LP pool is affected. Insurance stakers earn premium yield for providing this backstop.</p>
 <h2>Advanced Order Types</h2>
-<p>Stop-Loss, Take-Profit, and Trailing Stop are all enforced at the smart contract level — no off-chain dependency.</p>
+<p>Realyx enforces a full advanced-order suite at the smart-contract level — no off-chain dependency:</p>
+<ul>
+  <li><strong>Stop-Loss, Take-Profit &amp; Trailing Stop</strong> — protective triggers attached to an open position.</li>
+  <li><strong>Bracket orders</strong> — attach a stop-loss and take-profit to an entry order; both are applied to the position the moment the increase leg fills.</li>
+  <li><strong>Time-in-force</strong> — <code>GTC</code> (good-til-cancel), <code>IOC</code> (immediate-or-cancel), <code>FOK</code> (fill-or-kill), and <code>POST_ONLY</code>.</li>
+  <li><strong>Iceberg / TWAP slicing</strong> — a <code>visibleSize</code> smaller than the order size fills one slice per keeper cycle; <code>twapInterval</code> spaces slices over time.</li>
+  <li><strong>Reduce-only</strong> — orders that can only shrink (never increase) a position.</li>
+</ul>
+<h2>Subaccounts &amp; Delegated Trading</h2>
+<p>An owner can authorize a hot "bot" wallet with <code>addSubaccount(bot)</code> to trade on their behalf. The bot signs transactions and pays gas, while collateral is drawn from — and positions are minted to — the owner. Delegation is revocable any time via <code>removeSubaccount(bot)</code>. This powers both quant/market-maker automation and the copy-trading engine.</p>
 <h2>Dynamic Funding Rates</h2>
 <p>Funding rates are calculated algorithmically every 8 hours to keep perpetual prices anchored to spot. When long OI exceeds short, longs pay shorts, and vice versa.</p>
 <h2>Pyth Network Oracle Integration</h2>
@@ -161,7 +181,7 @@ cp frontend/.env.example frontend/.env</code></pre>
   <tbody>
     <tr><td><code>.env</code></td><td><code>PRIVATE_KEY</code></td><td>Deployer wallet private key</td></tr>
     <tr><td><code>backend/.env</code></td><td><code>POSTGRES_URL</code></td><td>PostgreSQL connection string</td></tr>
-    <tr><td><code>backend/.env</code></td><td><code>ENABLE_WS</code></td><td><code>true</code> local, <code>false</code> Vercel</td></tr>
+    <tr><td><code>backend/.env</code></td><td><code>ENABLE_WS</code></td><td><code>true</code> local, <code>false</code> serverless</td></tr>
     <tr><td><code>frontend/.env</code></td><td><code>VITE_API_URL</code></td><td>Backend API base URL</td></tr>
     <tr><td><code>frontend/.env</code></td><td><code>VITE_CHAIN_ID</code></td><td><code>71</code> for testnet</td></tr>
   </tbody>
@@ -195,25 +215,25 @@ PAGES['first-trade'] = () => `
 <div class="steps">
   <div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Install MetaMask or Fluent Wallet</h3><p>Any EVM-compatible wallet works. MetaMask is recommended.</p></div></div>
   <div class="step-item"><div class="step-num">2</div><div class="step-body"><h3>Add Conflux eSpace Testnet</h3><table><tbody><tr><td><strong>RPC URL</strong></td><td><code>https://evmtestnet.confluxrpc.com</code></td></tr><tr><td><strong>Chain ID</strong></td><td><code>71</code></td></tr><tr><td><strong>Currency</strong></td><td>CFX</td></tr></tbody></table></div></div>
-  <div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Get testnet CFX for gas</h3><p>Visit the <a href="https://evmtestnet.confluxscan.org/faucet" target="_blank">Conflux eSpace faucet</a> and request free CFX.</p></div></div>
-  <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Connect wallet on Realyx</h3><p>Open <a href="https://realyx.vercel.app/" target="_blank">realyx.vercel.app</a> and click Connect Wallet.</p></div></div>
+  <div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Get testnet CFX for gas</h3><p>Visit the <a href="https://efaucet.confluxnetwork.org/" target="_blank">Conflux eSpace faucet</a> and request free CFX.</p></div></div>
+  <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Connect wallet on Realyx</h3><p>Open <a href="https://app.realyx.example/" target="_blank">app.realyx.example</a> and click Connect Wallet.</p></div></div>
 </div>
-<h2>Step 2: Mint testnet USDC</h2>
+<h2>Step 2: Mint testnet USDT0</h2>
 <ol>
   <li>Click the <strong>Settings</strong> gear icon</li>
   <li>Navigate to <strong>Testnet Tools</strong></li>
-  <li>Click <strong>"Mint 1k Mock USDC"</strong> and confirm in your wallet</li>
+  <li>Click <strong>"Mint 1k Mock USDT0"</strong> and confirm in your wallet</li>
 </ol>
 <h2>Step 3: Open a long position</h2>
 <ol>
   <li>Navigate to the <strong>Markets</strong> tab and select <strong>CFX/USD</strong></li>
   <li>Choose <strong>Long</strong></li>
-  <li>Enter <strong>100 USDC</strong> collateral and set <strong>5x</strong> leverage</li>
+  <li>Enter <strong>100 USDT0</strong> collateral and set <strong>5x</strong> leverage</li>
   <li>Click <strong>"Open Long Position"</strong> and confirm in your wallet</li>
 </ol>
-<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Two transactions</div><p>You'll sign two transactions: one to approve USDC spending, and one to submit the order intent. The Keeper executes within ~3 seconds.</p></div></div>
+<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Two transactions</div><p>You'll sign two transactions: one to approve USDT0 spending, and one to submit the order intent. The Keeper executes within ~3 seconds.</p></div></div>
 <h2>Step 4: Monitor &amp; close</h2>
-<p>Your position appears in the <strong>Portfolio</strong> tab with live PnL via WebSocket. Click <strong>Close</strong> to exit and receive your USDC ± PnL back to your wallet.</p>
+<p>Your position appears in the <strong>Portfolio</strong> tab with live PnL via WebSocket. Click <strong>Close</strong> to exit and receive your USDT0 ± PnL back to your wallet.</p>
 `;
 
 PAGES['how-it-works'] = () => `
@@ -227,7 +247,7 @@ createOrder(market, collateral, leverage, isLong)
 executeOrder(orderId, pythPriceUpdateData)</code></pre>
 <h2>Order lifecycle</h2>
 <div class="steps">
-  <div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Order Created</h3><p>Trader calls <code>TradingCore.createOrder()</code>. USDC collateral is transferred to the contract. An <code>OrderCreated</code> event is emitted.</p></div></div>
+  <div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Order Created</h3><p>Trader calls <code>TradingCore.createOrder()</code>. USDT0 collateral is transferred to the contract. An <code>OrderCreated</code> event is emitted.</p></div></div>
   <div class="step-item"><div class="step-num">2</div><div class="step-body"><h3>Indexer Detects Event</h3><p>The PostgreSQL indexer polls <code>getLogs</code> from Conflux eSpace and persists the order. The WebSocket server broadcasts the pending order to connected clients.</p></div></div>
   <div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Keeper Fetches Price</h3><p>The Keeper bot detects the pending order and calls Pyth's Hermes API to fetch a signed VAA containing the latest price data.</p></div></div>
   <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Atomic Execution</h3><p>The Keeper calls <code>TradingCore.executeOrder(orderId, priceUpdateData)</code>. In a single transaction: oracle is updated, order is validated, position is opened.</p></div></div>
@@ -241,11 +261,11 @@ executeOrder(orderId, pythPriceUpdateData)</code></pre>
 PAGES['vault-mechanics'] = () => `
 <div class="page-header"><div class="page-header__eyebrow">Core Concepts</div><h1 class="page-header__title">Vault Mechanics</h1><p class="page-header__desc">How the shared liquidity vault acts as counterparty to all trades.</p></div>
 <h2>The vault counterparty model</h2>
-<p>LPs deposit USDC into <code>VaultCore</code>. The vault collectively takes the opposite side of every trade. If traders lose, the vault profits; if traders win, the vault pays out. LPs earn fees regardless of individual trade outcomes.</p>
+<p>LPs deposit USDT0 into <code>VaultCore</code>. The vault collectively takes the opposite side of every trade. If traders lose, the vault profits; if traders win, the vault pays out. LPs earn fees regardless of individual trade outcomes.</p>
 <h2>LP share accounting</h2>
 <p>VaultCore uses an ERC-4626-style share system:</p>
 <pre><code>shares = deposit_amount x total_shares / total_assets</code></pre>
-<p>When an LP deposits USDC, they receive <code>realyxLP</code> shares. The share price increases over time as the vault accumulates trading fees, borrow fees, funding payments, and liquidation penalties.</p>
+<p>When an LP deposits USDT0, they receive <code>realyxLP</code> shares. The share price increases over time as the vault accumulates trading fees, borrow fees, funding payments, and liquidation penalties.</p>
 <h2>Deposit</h2>
 <pre><code>function deposit(uint256 assets, address receiver)
   external returns (uint256 shares);</code></pre>
@@ -254,20 +274,20 @@ PAGES['vault-mechanics'] = () => `
   external returns (uint256 assets);</code></pre>
 <p>Subject to available liquidity. Large withdrawals that exceed immediate liquidity are queued and processed when liquidity frees up.</p>
 <h2>Borrow/repay cycle</h2>
-<pre><code>// Position opens: 100 USDC collateral, 10x leverage
-vault.borrow(1000 USDC, market, isLong)
+<pre><code>// Position opens: 100 USDT0 collateral, 10x leverage
+vault.borrow(1000 USDT0, market, isLong)
 
-// Position closes with +50 USDC profit
+// Position closes with +50 USDT0 profit
 vault.repay(1000, market, isLong, +50)
-// Vault receives 950 USDC back (1000 - 50 paid to trader)</code></pre>
+// Vault receives 950 USDT0 back (1000 - 50 paid to trader)</code></pre>
 <h2>Key metrics</h2>
 <table>
   <thead><tr><th>Metric</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>totalAssets()</code></td><td>Total USDC managed</td></tr>
-    <tr><td><code>getAvailableLiquidity()</code></td><td>USDC available for new borrows or withdrawals</td></tr>
+    <tr><td><code>totalAssets()</code></td><td>Total USDT0 managed</td></tr>
+    <tr><td><code>getAvailableLiquidity()</code></td><td>USDT0 available for new borrows or withdrawals</td></tr>
     <tr><td><code>getUtilization()</code></td><td>Percentage of assets lent to open positions</td></tr>
-    <tr><td><code>getLPSharePrice()</code></td><td>Current value of 1 LP share in USDC</td></tr>
+    <tr><td><code>getLPSharePrice()</code></td><td>Current value of 1 LP share in USDT0</td></tr>
   </tbody>
 </table>
 `;
@@ -323,14 +343,32 @@ PAGES['liquidation'] = () => `
 </ul>
 `;
 
+PAGES['social-rwa'] = () => `
+<div class="page-header"><div class="page-header__eyebrow">Core Concepts</div><h1 class="page-header__title">Social &amp; RWA Features</h1><p class="page-header__desc">Copy trading, referrals, and the contracts that make Real World Asset markets work on-chain.</p></div>
+<h2>Copy Trading</h2>
+<p>Lead traders register on <code>CopyRegistry</code> with an optional profit-fee. Followers (copiers) create copy relationships with per-relationship <strong>max allocation</strong> and <strong>max leverage</strong> caps. The backend copy engine mirrors lead-trader intent flow to copiers, and the in-app <strong>Copy Trading</strong> and <strong>Trader Profile</strong> pages surface ROI, win rate, and open positions.</p>
+<p>Under the hood, copying uses the same <strong>subaccount delegation</strong> primitive described in the <a href="#" onclick="navigate('trading-guide')">Trading Guide</a>: a <code>CopyBot</code> is registered as a subaccount of each copier and mirrors the lead's orders. Copier funds never leave their own account — they stay in the copier's TradingCore balance and are only drawn when a mirrored position opens. No funds are pooled.</p>
+<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Deployment-gated</div><p>Copy-trading data is served from a dedicated indexer schema. On deployments where that schema is not provisioned, the social endpoints return an empty set or <code>501</code> so the UI can render an honest "not enabled" state.</p></div></div>
+<h2>Referrals &amp; Rebates</h2>
+<p>Each wallet can own a referral code on <code>ReferralRegistry</code>. Referred trader fees accrue a rebate to the referrer, claimable in USDT0 via <code>VaultCore.claimableRebates(referrer)</code>. The <strong>Referrals</strong> page reads on-chain truth: code, referee count, cumulative earned, and pending claim. When the registry is not wired into a deployment, the API returns <code>live: false</code> with zeroed figures rather than fabricated numbers.</p>
+<h2>RWA Market Hours (MarketCalendar)</h2>
+<p>Tokenized equities and commodities follow real-world session hours enforced by <code>MarketCalendar</code>. When a market is outside its session, <code>TradingCore.createOrder</code> reverts with <code>MarketClosed</code>. Crypto markets (CFX, BTC, ETH) trade 24/7.</p>
+<h2>Dividends &amp; Corporate Actions</h2>
+<p><code>DividendManager</code> together with the off-chain <code>DividendKeeper</code> settles dividend-style adjustments for tokenized equity positions, keeping long/short holders economically consistent with the underlying asset's corporate actions.</p>
+<h2>Compliance Gating</h2>
+<p>An optional <code>IComplianceManager</code> (e.g. <code>AllowListCompliance</code>) can gate specific markets. When configured, <code>createOrder</code> calls <code>checkCompliance(market)</code> and reverts with <code>ComplianceCheckFailed</code> for non-permitted users. On open testnet deployments this is typically disabled or set to an allow-list.</p>
+<h2>Multi-Collateral (CollateralRegistry)</h2>
+<p><code>CollateralRegistry</code> lets governance register alternative collateral tokens (e.g. USDC, AxCNH) with per-asset base/liquidation/max haircuts, a utilization slope, a volatility adder, and an optional protocol-exposure cap. Each collateral is priced through an <code>OracleAggregator</code> feed. USDT0 remains the canonical 6-decimal settlement asset.</p>
+`;
+
 PAGES['trading-guide'] = () => `
 <div class="page-header"><div class="page-header__eyebrow">User Guides</div><h1 class="page-header__title">Trading Guide</h1><p class="page-header__desc">Everything you need to trade perpetual futures on Realyx.</p></div>
 <h2>Opening a position</h2>
 <ol>
   <li>Navigate to the <strong>Markets</strong> tab and select an asset pair</li>
   <li>Choose <strong>Long</strong> (price goes up) or <strong>Short</strong> (price goes down)</li>
-  <li>Enter your collateral amount in USDC</li>
-  <li>Set your leverage (1x–10x)</li>
+  <li>Enter your collateral amount in USDT0</li>
+  <li>Set your leverage (1x–100x)</li>
   <li>Review the estimated entry price, liquidation price, and fees</li>
   <li>Click <strong>Open Position</strong> and confirm in your wallet</li>
 </ol>
@@ -338,7 +376,7 @@ PAGES['trading-guide'] = () => `
 <h2>Managing positions</h2>
 <p>From the <strong>Portfolio</strong> tab you can:</p>
 <ul>
-  <li><strong>Add collateral</strong> — Deposit more USDC to improve your health factor</li>
+  <li><strong>Add collateral</strong> — Deposit more USDT0 to improve your health factor</li>
   <li><strong>Close position</strong> — Exit at the current mark price and realize PnL</li>
   <li><strong>Set Stop-Loss</strong> — Automatically close if price moves against you</li>
   <li><strong>Set Take-Profit</strong> — Automatically close when you reach your target profit</li>
@@ -357,12 +395,22 @@ PAGES['trading-guide'] = () => `
 </table>
 <h2>Transferring positions</h2>
 <p>Since every position is an ERC-721 NFT, you can transfer it like any other NFT. The new owner inherits all position parameters, collateral, and risk.</p>
+<h2 id="subaccounts">Subaccounts &amp; delegated trading</h2>
+<p>Realyx supports <strong>delegated trading</strong> at the contract level. You can authorize a separate "bot" wallet to place and manage orders on your behalf without ever giving it custody of your funds:</p>
+<ul>
+  <li><strong>Authorize</strong> — call <code>addSubaccount(botAddress)</code> from your main wallet. This sets <code>isSubaccount[you][bot] = true</code> and emits <code>SubaccountUpdated</code>.</li>
+  <li><strong>Trade</strong> — the bot submits <code>createOrder</code> with <code>owner</code> set to your address. The bot signs and fronts the gas/execution fee; your wallet is debited the collateral and receives the position NFT.</li>
+  <li><strong>Revoke</strong> — call <code>removeSubaccount(botAddress)</code> at any time. Delegation has no timelock and is instantly revocable.</li>
+</ul>
+<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Non-custodial by design</div><p>A subaccount bot can <em>only</em> open and manage positions owned by you — it can never withdraw your collateral to itself. If a delegated order is cancelled, the execution fee is refunded to whichever party actually paid it (the bot). This is the same primitive the copy-trading <code>CopyBot</code> uses to mirror a lead trader's flow.</p></div></div>
+<h2>Advanced order types</h2>
+<p>Beyond simple market orders, Realyx enforces these on-chain (see <a href="#" onclick="navigate('key-features')">Key Features</a> for details): bracket orders (entry + SL/TP in one), time-in-force (<code>GTC</code> / <code>IOC</code> / <code>FOK</code> / <code>POST_ONLY</code>), iceberg/TWAP slicing, and reduce-only orders.</p>
 `;
 
 PAGES['providing-liquidity'] = () => `
 <div class="page-header"><div class="page-header__eyebrow">User Guides</div><h1 class="page-header__title">Providing Liquidity</h1><p class="page-header__desc">Earn real yield by acting as counterparty to traders through the Realyx vault.</p></div>
 <h2>How LPs earn yield</h2>
-<p>When you deposit USDC into the vault, you become the collective counterparty to all traders. You earn from:</p>
+<p>When you deposit USDT0 into the vault, you become the collective counterparty to all traders. You earn from:</p>
 <ul>
   <li><strong>Trading fees</strong> — A portion of every position open and close</li>
   <li><strong>Borrow fees</strong> — Charged hourly on all outstanding positions</li>
@@ -372,7 +420,7 @@ PAGES['providing-liquidity'] = () => `
 <h2>Depositing</h2>
 <ol>
   <li>Navigate to the <strong>Vault</strong> tab</li>
-  <li>Enter the amount of USDC you want to deposit</li>
+  <li>Enter the amount of USDT0 you want to deposit</li>
   <li>Click <strong>Deposit</strong> and confirm in your wallet</li>
   <li>You receive <code>realyxLP</code> share tokens representing your ownership of the vault</li>
 </ol>
@@ -381,7 +429,7 @@ PAGES['providing-liquidity'] = () => `
   <li>Navigate to the <strong>Vault</strong> tab</li>
   <li>Enter the number of <code>realyxLP</code> shares to redeem</li>
   <li>Click <strong>Withdraw</strong></li>
-  <li>If liquidity is available, you receive USDC immediately. If utilization is high, your withdrawal is queued.</li>
+  <li>If liquidity is available, you receive USDT0 immediately. If utilization is high, your withdrawal is queued.</li>
 </ol>
 <div class="callout callout--warning"><div class="callout__icon">⚠️</div><div class="callout__body"><div class="callout__title">LP risk</div><p>If traders collectively profit more than the fees earned, LP share value decreases. Vault-counterparty models tend to be net profitable for LPs historically, but this is not guaranteed.</p></div></div>
 `;
@@ -406,16 +454,16 @@ PAGES['faq'] = () => `
 <div class="page-header"><div class="page-header__eyebrow">User Guides</div><h1 class="page-header__title">FAQ</h1><p class="page-header__desc">Frequently asked questions about Realyx.</p></div>
 <h2>General</h2>
 <h3>What is Realyx?</h3>
-<p>Realyx is a decentralized perpetual futures exchange built on Conflux eSpace. Trade crypto, equities, and commodities with up to 10x leverage — no KYC, no custody risk, no front-running.</p>
+<p>Realyx is a decentralized perpetual futures exchange built on Conflux eSpace. Trade crypto, equities, and commodities with up to 100x leverage — no KYC, no custody risk, no front-running.</p>
 <h3>Is Realyx audited?</h3>
 <p>Not yet. A professional security audit is planned for Phase 2 (post-hackathon). The protocol is currently on testnet only.</p>
 <h3>What network does Realyx run on?</h3>
 <p>Conflux eSpace — an EVM-compatible execution environment. Chain ID 71 (testnet) or 1030 (mainnet, coming soon).</p>
 <h2>Trading</h2>
 <h3>What assets can I trade?</h3>
-<p>Crypto pairs (CFX-USD, BTC-USD, ETH-USD), tokenized equities (TSLAX, NVDAX, AAPLX, METAX, GOOGLX, NFLXX, COINX, MCDX, CRCLX), and tokenized gold (XAUT-USD). The active set per deployment is the response of <code>GET /api/markets</code>.</p>
+<p>Crypto pairs (CFX-USD, BTC-USD, ETH-USD), tokenized equities (NVDAX, TSLAX, AAPLX, METAX, GOOGLX, NFLXX, MCDX, HOODX, MSTRX, SPYX), crypto-adjacent equities (COINX, CRCLX), and tokenized gold (XAUT-USD). The active set per deployment is the response of <code>GET /api/markets</code>.</p>
 <h3>What's the maximum leverage?</h3>
-<p>Up to 10x by default, configurable per market. Higher leverage means tighter liquidation prices.</p>
+<p>Up to 100x, configurable per market. Higher leverage means tighter liquidation prices.</p>
 <h3>Can I get front-run?</h3>
 <p>No. Realyx uses a two-phase commit model. Your order intent is submitted first, then a Keeper executes it with fresh oracle data in a separate transaction. There's no opportunity for MEV extraction.</p>
 <h3>What happens if no Keeper executes my order?</h3>
@@ -434,8 +482,8 @@ PAGES['faq'] = () => `
 <p>MetaMask or Fluent Wallet configured for Conflux eSpace. Any EVM-compatible wallet that supports custom networks works.</p>
 <h3>How do I get testnet tokens?</h3>
 <ul>
-  <li><strong>CFX (gas):</strong> <a href="https://evmtestnet.confluxscan.org/faucet" target="_blank">Conflux eSpace faucet</a></li>
-  <li><strong>USDC (collateral):</strong> Use "Mint 1k Mock USDC" in Settings → Testnet Tools</li>
+  <li><strong>CFX (gas):</strong> <a href="https://efaucet.confluxnetwork.org/" target="_blank">Conflux eSpace faucet</a></li>
+  <li><strong>USDT0 (collateral):</strong> Use "Mint 1k Mock USDT0" in Settings → Testnet Tools</li>
 </ul>
 <h2>Community</h2>
 <h3>How do I follow Realyx and reach the team?</h3>
@@ -526,8 +574,8 @@ CONFLUX_TESTNET_RPC=https://evmtestnet.confluxrpc.com</code></pre>
 <pre><code>POSTGRES_URL=postgresql://user:pass@localhost:5432/realyx
 RPC_URL=https://evmtestnet.confluxrpc.com
 CHAIN_ID=71
-TRADING_CORE_ADDRESS=0x64f277f73bfc81Ad80286a4266c0E0613d867Df3
-VAULT_CORE_ADDRESS=0xB5C983d038caA21f4a9520b0EFAb2aD71DE4e714
+TRADING_CORE_ADDRESS=0xc8A6585dFBe2833ed093E557D36DC8Fe136a8c76
+VAULT_CORE_ADDRESS=0x98E011A8782aF36C5Ad6051bC54B86a7c0705F67
 PORT=3001
 ENABLE_WS=true
 WS_PORT=3002</code></pre>
@@ -536,12 +584,12 @@ WS_PORT=3002</code></pre>
 VITE_WS_URL=ws://localhost:3002
 VITE_RPC_URL=https://evmtestnet.confluxrpc.com
 VITE_CHAIN_ID=71
-VITE_TRADING_CORE_ADDRESS=0x64f277f73bfc81Ad80286a4266c0E0613d867Df3
-VITE_VAULT_CORE_ADDRESS=0xB5C983d038caA21f4a9520b0EFAb2aD71DE4e714
-VITE_POSITION_TOKEN_ADDRESS=0x4368b5741A105c1ACE50ad98581fDa050685fa8B
+VITE_TRADING_CORE_ADDRESS=0xc8A6585dFBe2833ed093E557D36DC8Fe136a8c76
+VITE_VAULT_CORE_ADDRESS=0x98E011A8782aF36C5Ad6051bC54B86a7c0705F67
+VITE_POSITION_TOKEN_ADDRESS=0xF520CC4B305553A9b6D391571c303E45AacC178c
 VITE_WALLET_CONNECT_PROJECT_ID=your_project_id</code></pre>
-<h2>Serverless (Vercel) mode</h2>
-<p>When deploying to Vercel, WebSockets are not available. Set <code>ENABLE_WS=false</code> in backend and leave <code>VITE_WS_URL</code> empty in frontend. The frontend automatically falls back to REST polling.</p>
+<h2>Serverless mode</h2>
+<p>In serverless environments, WebSockets are not available. Set <code>ENABLE_WS=false</code> in backend and leave <code>VITE_WS_URL</code> empty in frontend. The frontend automatically falls back to REST polling.</p>
 `;
 
 PAGES['architecture'] = () => `
@@ -549,26 +597,29 @@ PAGES['architecture'] = () => `
 <h2>System diagram</h2>
 <pre><code>+------------------------------------------------------------------+
 |                  FRONTEND (React 18 / Vite)                      |
-|  Markets | Trading | Portfolio | Vault | Analytics | Settings    |
+|  Markets | Trading | Portfolio | Vault | Insurance | Leaderboard |
+|  Copy Trading | Trader Profile | Referrals | Analytics | Status  |
+|  Settings (PWA + off-app alerts)                                 |
 +------------------------------+-----------------------------------+
-                               | REST API / WebSocket
+                               | REST API / WebSocket (polling mode)
                                v
 +------------------------------------------------------------------+
 |                  BACKEND (Express / Node.js)                     |
-|  Event Poller | Market Aggregator | Stat Cruncher | Triggers     |
+|  Indexer | Market Aggregator | Stats | Leaderboard | Copy Engine |
 +------------------------------+-----------------------------------+
                                | SQL + JSON-RPC
        +-----------------------+-----------------------+
        v                       v                       v
 +-------------+       +-------------+       +-------------+
 |  PostgreSQL |       | Pyth Network|       |   Keepers   |
-|  (Indexer)  |       |  (Hermes)   |       |  (Bot.ts)   |
+|  (Indexer)  |       |  (Hermes)   |       | (keeper-bot)|
 +------+------+       +-------------+       +-------------+
        |
        v
 +------------------------------------------------------------------+
 |              Conflux eSpace (EVM-compatible L1)                  |
-|  TradingCore | VaultCore | OracleAggregator | PositionToken      |
+|  TradingCore | VaultCore | OracleAggregator | PositionToken |    |
+|  MarketCalendar | DividendManager | Compliance | Registries      |
 +------------------------------------------------------------------+</code></pre>
 <h2>Smart contracts (on-chain)</h2>
 <table>
@@ -580,16 +631,24 @@ PAGES['architecture'] = () => `
     <tr><td><code>OracleAggregator</code></td><td>Pyth price feed integration, staleness checks, circuit breakers</td></tr>
     <tr><td><code>PositionToken</code></td><td>ERC-721 NFT representing each open position</td></tr>
     <tr><td><code>MarketCalendar</code></td><td>Trading hours enforcement for RWA markets</td></tr>
-    <tr><td><code>DividendManager</code></td><td>Corporate action settlement for equity positions</td></tr>
+    <tr><td><code>DividendManager</code> / <code>DividendKeeper</code></td><td>Corporate action settlement for equity positions</td></tr>
+    <tr><td><code>CollateralRegistry</code></td><td>Alternative collateral registration with haircuts/caps</td></tr>
+    <tr><td><code>CopyRegistry</code></td><td>Copy-trading lead/copier registry</td></tr>
+    <tr><td><code>ReferralRegistry</code></td><td>Referral codes and fee rebates</td></tr>
+    <tr><td><code>AllowListCompliance</code></td><td>Optional per-market access gating (IComplianceManager)</td></tr>
+    <tr><td><code>RedStoneAdapter</code></td><td>Optional secondary <code>IPriceSource</code> for OracleAggregator deviation cross-checks (RedStone pull oracle)</td></tr>
   </tbody>
 </table>
 <h2>Backend services</h2>
 <ul>
-  <li><strong>Express API</strong> — REST endpoints for market data, user positions, stats, leaderboard</li>
+  <li><strong>Express API</strong> — REST endpoints for markets, user positions, stats, leaderboard, insurance, referrals, and copy-trading (social)</li>
   <li><strong>PostgreSQL Indexer</strong> — Polls <code>getLogs</code> from Conflux eSpace, persists 15+ event types</li>
-  <li><strong>WebSocket Server</strong> — Pushes real-time price updates and position changes</li>
+  <li><strong>WebSocket Server</strong> — Pushes real-time price updates, stats, and keeper-failure alerts</li>
   <li><strong>Pyth Service</strong> — Fetches latest prices from Hermes for frontend display</li>
-  <li><strong>Server-side cache</strong> — Caches heavy aggregations (TVL, OI, volume)</li>
+  <li><strong>Copy Engine</strong> — Mirrors lead-trader intent flow to copiers</li>
+  <li><strong>RPC pool</strong> — Health-routes on-chain reads across multiple endpoints with per-endpoint circuit breakers and automatic failover</li>
+  <li><strong>Reconciliation job</strong> — Periodically compares indexed open interest / TVL against on-chain truth and emits drift metrics</li>
+  <li><strong>Server-side cache</strong> — Caches heavy aggregations (TVL, OI, volume); backed by Redis when configured, else in-process LRU</li>
 </ul>
 <h2>Frontend stack</h2>
 <ul>
@@ -611,37 +670,35 @@ PAGES['smart-contracts'] = () => `
 <table>
   <thead><tr><th>Contract</th><th>Role</th><th>Address</th><th>Explorer</th></tr></thead>
   <tbody>
-    <tr><td>TradingCore</td><td>Order creation, execution, liquidation</td><td><code>0x64f277f73bfc81Ad80286a4266c0E0613d867Df3</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x64f277f73bfc81Ad80286a4266c0E0613d867Df3" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>TradingCoreViews</td><td>Read-only companion for view calls</td><td><code>0x944d4030CEc4Bf552d8E46dC684B70B100Eb0b86</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x944d4030CEc4Bf552d8E46dC684B70B100Eb0b86" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>VaultCore</td><td>LP liquidity, insurance tranche, borrow / repay</td><td><code>0xB5C983d038caA21f4a9520b0EFAb2aD71DE4e714</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xB5C983d038caA21f4a9520b0EFAb2aD71DE4e714" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>PositionToken</td><td>ERC-721 NFT representing each open position</td><td><code>0x4368b5741A105c1ACE50ad98581fDa050685fa8B</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x4368b5741A105c1ACE50ad98581fDa050685fa8B" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>OracleAggregator</td><td>Pyth feed integration, staleness checks</td><td><code>0x89cC8eAbF2e967d81FD04D1023298A3bDcE67450</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x89cC8eAbF2e967d81FD04D1023298A3bDcE67450" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>MarketCalendar</td><td>Trading-hours enforcement for RWA markets</td><td><code>0xD3c20cca25Dd8189ed6115A1b65192d831ca732F</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xD3c20cca25Dd8189ed6115A1b65192d831ca732F" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>DividendManager</td><td>Corporate-action settlement for equity positions</td><td><code>0xa5bd07176Ef68D1ec51BfCCD911d3B586a45c54F</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xa5bd07176Ef68D1ec51BfCCD911d3B586a45c54F" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>TradingCore</td><td>Order creation, execution, liquidation</td><td><code>0xc8A6585dFBe2833ed093E557D36DC8Fe136a8c76</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xc8A6585dFBe2833ed093E557D36DC8Fe136a8c76" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>TradingCoreViews</td><td>Read-only companion for view calls</td><td><code>0xb5c01fb09F2B9f62A4907dDB41c216419e79AbC5</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xb5c01fb09F2B9f62A4907dDB41c216419e79AbC5" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>VaultCore</td><td>LP liquidity, insurance tranche, borrow / repay</td><td><code>0x98E011A8782aF36C5Ad6051bC54B86a7c0705F67</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x98E011A8782aF36C5Ad6051bC54B86a7c0705F67" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>PositionToken</td><td>ERC-721 NFT representing each open position</td><td><code>0xF520CC4B305553A9b6D391571c303E45AacC178c</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xF520CC4B305553A9b6D391571c303E45AacC178c" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>OracleAggregator</td><td>Pyth feed integration, staleness checks</td><td><code>0x9d027ab66F396176C188946cE49BA9061679e6a9</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x9d027ab66F396176C188946cE49BA9061679e6a9" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>MarketCalendar</td><td>Trading-hours enforcement for RWA markets</td><td><code>0xDE6a4fa0e8DE4D3f0792010Fd49AbdeF8915529e</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xDE6a4fa0e8DE4D3f0792010Fd49AbdeF8915529e" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>DividendManager</td><td>Corporate-action settlement for equity positions</td><td><code>0xA84104C6E2Ed7455a606A3439aF80863112e9B0b</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xA84104C6E2Ed7455a606A3439aF80863112e9B0b" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>DividendKeeper</td><td>Keeper that settles dividend adjustments for RWA positions</td><td><code>0x5CCdb637C1Fa5D06D7F666BDBb62F3Ad12A58010</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x5CCdb637C1Fa5D06D7F666BDBb62F3Ad12A58010" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>ComplianceManager</td><td>Optional allow-list / per-market access gating (AllowListCompliance)</td><td><code>0xD694F0BC86e1f24439037A221f7c4e3beDB781D7</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xD694F0BC86e1f24439037A221f7c4e3beDB781D7" target="_blank" rel="noopener">View ↗</a></td></tr>
     <tr><td>Pyth</td><td>Pyth Network on-chain contract (entropy / VAA verifier)</td><td><code>0xDd24F84d36BF92C65F92307595335bdFab5Bbd21</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xDd24F84d36BF92C65F92307595335bdFab5Bbd21" target="_blank" rel="noopener">View ↗</a></td></tr>
-    <tr><td>Mock USDC</td><td>Testnet collateral token (mintable in app Settings)</td><td><code>0xa56Ba38f3c820D6cf31a68CBBD0d25c0F5644d35</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xa56Ba38f3c820D6cf31a68CBBD0d25c0F5644d35" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>Mock USDT0</td><td>Testnet collateral token (mintable in app Settings)</td><td><code>0x85B9BA60D6Aef728c0Ea9C9f6709D31707dfC73A</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x85B9BA60D6Aef728c0Ea9C9f6709D31707dfC73A" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>CollateralRegistry</td><td>Multi-collateral registry (haircuts, price feeds)</td><td><code>0x0f5cAC8a3BC4E61ABA1d547D9A2C1DFA5A087054</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x0f5cAC8a3BC4E61ABA1d547D9A2C1DFA5A087054" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>CopyRegistry</td><td>Copy-trading lead / follower registry</td><td><code>0xf09b2fa210Fe2dbE17287B331E7A93c58Bb5A001</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0xf09b2fa210Fe2dbE17287B331E7A93c58Bb5A001" target="_blank" rel="noopener">View ↗</a></td></tr>
+    <tr><td>ReferralRegistry</td><td>Referral codes, discounts, rebates</td><td><code>0x5FbD3aBfBdB667e543B23B80f34Fa7167C1514a8</code></td><td><a href="https://evmtestnet.confluxscan.org/address/0x5FbD3aBfBdB667e543B23B80f34Fa7167C1514a8" target="_blank" rel="noopener">View ↗</a></td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--text-3)">Source of truth: <code>deployment/confluxTestnet.json</code> in the repo. RPC <code>https://evmtestnet.confluxrpc.com</code>.</p>
+<p style="font-size:13px;color:var(--text-3)">Source of truth: <code>deployment/confluxTestnet.json</code> in the repo. RPC <code>https://evmtestnet.confluxrpc.com</code>. <code>CopyRegistry</code>, <code>ReferralRegistry</code> and <code>CollateralRegistry</code> are deployed and published in <code>deployment/confluxTestnet.json</code>.</p>
 <h2>TradingCore interface</h2>
 <pre><code>interface ITradingCore {
-  // Phase 1: Lock collateral, record intent
-  function createOrder(
-    OrderType orderType,
-    address market,
-    uint256 sizeDelta,
-    uint256 collateralDelta,
-    uint256 triggerPrice,
-    bool isLong,
-    uint256 maxSlippage,
-    uint256 positionId
-  ) external payable returns (uint256 orderId);
+  // Phase 1: Escrow collateral, queue a signed intent.
+  // Advanced fields (TIF, brackets, iceberg/TWAP) live in CreateOrderParams.
+  function createOrder(DataTypes.CreateOrderParams calldata params)
+    external payable returns (uint256 orderId);
 
   // Phase 2: Keeper executes with fresh Pyth price
   function executeOrder(
     uint256 orderId,
     bytes[] calldata priceUpdateData
-  ) external;
+  ) external payable;
 
   // Cancel a queued order and refund escrowed collateral
   function cancelOrder(uint256 orderId) external;
@@ -651,19 +708,37 @@ PAGES['smart-contracts'] = () => `
   function setTakeProfit(uint256 positionId, uint256 takeProfitPrice) external;
   function setTrailingStop(uint256 positionId, uint256 trailingStopBps) external;
 
+  // Top up an open position's collateral to improve health
+  function addCollateral(
+    uint256 positionId,
+    uint256 amount,
+    uint256 maxLeverage,
+    bool emergency
+  ) external;
+
   // Close a position (full or partial)
   function closePosition(DataTypes.ClosePositionParams calldata params)
     external returns (int256 realizedPnL);
   function partialClose(
     uint256 positionId,
     uint256 closePercent,
-    uint256 maxSlippage
+    uint256 minReceive,
+    uint256 deadline
   ) external returns (int256 realizedPnL);
+
+  // Subaccount delegation: authorize / revoke a bot to trade on your behalf
+  function addSubaccount(address bot) external;
+  function removeSubaccount(address bot) external;
+  function isSubaccount(address owner, address bot) external view returns (bool);
 
   // Liquidate an undercollateralized position
   function liquidatePosition(uint256 positionId)
     external returns (uint256 liquidatorReward);
+  // Permissionless fallback liquidation (when enabled by governance)
+  function liquidatePositionPermissionless(uint256 positionId)
+    external returns (uint256 liquidatorReward);
 }</code></pre>
+<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Subaccount delegation</div><p><code>createOrder</code> accepts an <code>owner</code> field in <code>CreateOrderParams</code>. When <code>owner</code> is zero or equals <code>msg.sender</code> the order is direct. When <code>owner</code> differs, the caller must be an approved subaccount bot (<code>isSubaccount[owner][bot] == true</code>) — the bot signs and fronts the gas/execution fee while the owner is debited collateral and receives the position NFT. This is the same primitive the copy-trading <code>CopyBot</code> uses. See <a href="#subaccounts" onclick="navigate('trading-guide')">Delegated Trading</a>.</p></div></div>
 <h2>VaultCore interface</h2>
 <pre><code>interface IVaultCore {
   // LP deposits / withdrawals (ERC-4626-style)
@@ -686,7 +761,7 @@ PAGES['smart-contracts'] = () => `
     external returns (uint256 assets);
 }</code></pre>
 <h2>Upgradeability</h2>
-<p>All core contracts use the <strong>UUPS (Universal Upgradeable Proxy Standard)</strong> pattern. Upgrades require the <code>UPGRADER_ROLE</code> and are governed by a multi-signature quorum.</p>
+<p>All core contracts use the <strong>UUPS (Universal Upgradeable Proxy Standard)</strong> pattern. <code>_authorizeUpgrade</code> is admin-gated (no on-chain timelock) and is intended to sit behind a multi-signature wallet with an off-chain hold. Sensitive parameter changes (treasury, RWA wiring, fee recipients, referral registry) are protected by 48-hour timelocks.</p>
 <h2>Supporting libraries</h2>
 <table>
   <thead><tr><th>Library</th><th>Purpose</th></tr></thead>
@@ -709,11 +784,12 @@ PAGES['api-reference'] = () => `
   <thead><tr><th>Environment</th><th>REST Base URL</th><th>WebSocket</th></tr></thead>
   <tbody>
     <tr><td>Local</td><td><code>http://localhost:3001/api</code></td><td><code>ws://localhost:3002</code></td></tr>
-    <tr><td>Vercel</td><td><code>/api</code></td><td>Not available (use polling)</td></tr>
+    <tr><td>Serverless</td><td><code>/api</code></td><td>Not available (use polling)</td></tr>
   </tbody>
 </table>
 <h2>Authentication</h2>
-<p>The entire REST API is <strong>permissionless</strong> — no API keys or authentication required.</p>
+<p>The public read API is <strong>permissionless</strong> — no key required. Optional tiered API keys can be issued via <code>POST /api/v1/auth/key</code> (EIP-712 signature) and verified with the <code>x-api-key</code> header at <code>GET /api/v1/auth/verify</code>. Internal routes (keeper webhook, debug) are bearer-secret gated in production.</p>
+<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Versioning &amp; copy-trading writes</div><p>Most routes are mounted twice: a legacy <code>/api/...</code> path and a versioned <code>/api/v1/...</code> path that behave identically. The SDK targets <code>/api/v1</code>. Note the social API is <strong>read-only</strong> plus a stats-<code>refresh</code> trigger — there is no REST endpoint to create a copy relationship. Copiers establish copying <strong>on-chain</strong> via <code>CopyRegistry</code> and by approving the <code>CopyBot</code> with <code>TradingCore.addSubaccount</code>; the backend only indexes and mirrors that on-chain state.</p></div></div>
 <h2>Response envelope</h2>
 <pre><code>// Success
 { "success": true, "data": { ... } }
@@ -731,7 +807,16 @@ PAGES['api-reference'] = () => `
     <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/stats</td><td>Protocol summary: TVL, 24h volume, OI, liquidations</td></tr>
     <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/stats/history</td><td>Daily aggregated metrics (90 days)</td></tr>
     <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/leaderboard</td><td>Trader rankings (query: <code>?limit=10&amp;timeframe=all</code>)</td></tr>
-    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/insurance/claims</td><td>Insurance fund claim history</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/insurance/claims</td><td>Insurance tranche claim (bad-debt cover) history</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/referrals/stats</td><td>On-chain referral stats (query: <code>?address=0x...</code>)</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/vault/yield</td><td>LP real-yield breakdown — APR by source + 30d APR history</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/status</td><td>Public transparency feed — oracle/RPC/indexer/vault health, uptime, solvency</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/v1/social/top-traders</td><td>Registered copy-trading lead traders by ROI</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/v1/social/trader/:address</td><td>Lead-trader profile and open positions</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/v1/social/copier/:address/following</td><td>Relationships a copier follows (allocations, leverage caps)</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/v1/social/copier/:address/pnl</td><td>Aggregate copied PnL per lead trader for a copier</td></tr>
+    <tr><td><span class="method method--post">POST</span></td><td class="endpoint-path">/api/v1/social/refresh</td><td>Trigger the copy engine to refresh lead-trader stats</td></tr>
+    <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/v1/keeper/failures/:address</td><td>Keeper execution-failure history for a wallet</td></tr>
     <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/sync</td><td>Trigger an indexer sync (gated by <code>CRON_SECRET</code>)</td></tr>
     <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/api/pyth-refresh</td><td>Refresh cached Pyth prices (gated by <code>CRON_SECRET</code>)</td></tr>
     <tr><td><span class="method method--get">GET</span></td><td class="endpoint-path">/health</td><td>Service health check (also <code>/health/detailed</code>)</td></tr>
@@ -767,6 +852,38 @@ ws.onmessage = (msg) => {
 };</code></pre>
 `;
 
+PAGES['sdk'] = () => `
+<div class="page-header"><div class="page-header__eyebrow">Developer Guide</div><h1 class="page-header__title">Strategy SDK</h1><p class="page-header__desc">The <code>@realyx/sdk</code> TypeScript package for market makers and quant users.</p></div>
+<p>The repo ships a lightweight TypeScript SDK in <code>sdk/</code> that wraps the REST API, a managed auto-reconnecting WebSocket, and an ethers v6 order builder. It supports read-only usage and signer-based (or delegated subaccount) trading.</p>
+<h2>What it provides</h2>
+<ul>
+  <li><code>RealyxClient</code> — REST helpers: <code>getMarkets()</code>, <code>getPositions(addr)</code>, <code>getTrades(addr)</code>, <code>getStats()</code>, <code>getLeaderboard()</code></li>
+  <li><code>RealyxWs</code> — managed WebSocket with auto-reconnect and channel subscriptions</li>
+  <li><code>OrderBuilder</code> — construct, sign, and broadcast orders via ethers v6</li>
+  <li>Native subaccount (delegated trading) support — a bot key signs/pays gas for an owner account</li>
+</ul>
+<div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">API surface</div><p>The SDK targets the versioned API (<code>/api/v1/...</code>). It is published as <code>@realyx/sdk</code> and peer-depends on <code>ethers ^6</code>.</p></div></div>
+<h2>Quick example</h2>
+<pre><code>import { RealyxClient } from "@realyx/sdk";
+
+const client = new RealyxClient({
+  apiBaseUrl: "https://app.realyx.example",
+  // wsUrl defaults to apiBaseUrl with http→ws + "/ws"
+  // signer or subaccount required only for trading
+});
+
+const markets = await client.getMarkets();
+const stats = await client.getStats();
+
+client.connectAndSubscribe(["prices", "stats", "funding"], (msg) => {
+  console.log("ws:", msg);
+});</code></pre>
+<h2>Build</h2>
+<pre><code>cd sdk
+npm install
+npm run build   # tsc → dist/</code></pre>
+`;
+
 PAGES['keeper-node'] = () => `
 <div class="page-header"><div class="page-header__eyebrow">Developer Guide</div><h1 class="page-header__title">Keeper Node</h1><p class="page-header__desc">Run a Keeper node to execute orders and earn execution fees.</p></div>
 <h2>What is a Keeper?</h2>
@@ -782,48 +899,57 @@ PAGES['keeper-node'] = () => `
 cd realyx-perp-conflux
 npm install
 
-# Set PRIVATE_KEY to your keeper wallet in .env
+# Set KEEPER_PRIVATE_KEY (or PRIVATE_KEY) for your keeper wallet in .env
 cp .env.example .env
 
+# Grant the keeper wallet KEEPER_ROLE
+npm run grant:keeper
+
 # Run the keeper bot
-npx ts-node scripts/keeper-bot.ts</code></pre>
-<p>The bot will poll for pending orders, fetch the latest Pyth VAA from Hermes API, call <code>executeOrder(orderId, priceUpdateData)</code>, and collect the execution fee.</p>
+npm run keeper:bot</code></pre>
+<p>The bot polls for pending orders, fetches the latest Pyth update from the Hermes API, pushes <code>updatePriceFeeds</code> when oracle state is stale, calls <code>executeOrder(orderId, priceUpdateData)</code>, and collects the execution fee.</p>
 <h2>Configuration</h2>
 <table>
   <thead><tr><th>Variable</th><th>Default</th><th>Description</th></tr></thead>
   <tbody>
-    <tr><td><code>KEEPER_POLL_INTERVAL</code></td><td>3000ms</td><td>How often to check for pending orders</td></tr>
-    <tr><td><code>KEEPER_LOOKBACK_BLOCKS</code></td><td>100</td><td>How many blocks back to scan for missed orders</td></tr>
-    <tr><td><code>RPC_URL</code></td><td>—</td><td>Conflux eSpace RPC endpoint</td></tr>
-    <tr><td><code>PRIVATE_KEY</code></td><td>—</td><td>Keeper wallet private key</td></tr>
+    <tr><td><code>KEEPER_PRIVATE_KEY</code></td><td>—</td><td>Keeper wallet private key (falls back to <code>PRIVATE_KEY</code>)</td></tr>
+    <tr><td><code>KEEPER_RPC_URL</code></td><td>chain default</td><td>Conflux eSpace RPC endpoint</td></tr>
+    <tr><td><code>KEEPER_RPC_URLS</code></td><td>—</td><td>Comma-separated fallback RPCs</td></tr>
+    <tr><td><code>KEEPER_HERMES_URL</code></td><td><code>https://hermes.pyth.network</code></td><td>Pyth Hermes endpoint</td></tr>
+    <tr><td><code>KEEPER_POLL_INTERVAL_SECONDS</code></td><td>3</td><td>How often to check for pending orders</td></tr>
+    <tr><td><code>KEEPER_LOOKBACK_BLOCKS</code></td><td>5000</td><td>How many blocks back to scan for missed orders</td></tr>
+    <tr><td><code>KEEPER_TRADING_CORE_ADDRESS</code></td><td>deployment JSON</td><td>Override the TradingCore proxy address</td></tr>
   </tbody>
 </table>
 <div class="callout callout--info"><div class="callout__icon">ℹ️</div><div class="callout__body"><div class="callout__title">Decentralized Keeper network (roadmap)</div><p>Phase 3 plans to open Keeper participation to anyone without requiring a role grant, with on-chain bounty distribution.</p></div></div>
 `;
 
 PAGES['deployment'] = () => `
-<div class="page-header"><div class="page-header__eyebrow">Developer Guide</div><h1 class="page-header__title">Deployment</h1><p class="page-header__desc">Deploy Realyx using Docker Compose, Vercel, or manual setup.</p></div>
+<div class="page-header"><div class="page-header__eyebrow">Developer Guide</div><h1 class="page-header__title">Deployment</h1><p class="page-header__desc">Deploy Realyx using Docker Compose, Railway, or manual setup.</p></div>
 <h2>Docker Compose (recommended)</h2>
-<pre><code>docker-compose -f docker-compose.minimal.yml up -d</code></pre>
-<p>Starts: Frontend (port 3000), Backend API (port 3001), WebSocket (port 3002), PostgreSQL (port 5432).</p>
-<h2>Vercel (serverless)</h2>
+<pre><code># Minimal stack (backend + frontend)
+docker-compose -f docker-compose.minimal.yml up -d
+
+# Full stack (adds PostgreSQL, Redis, Prometheus, Grafana)
+docker-compose up -d</code></pre>
+<p>The full <code>docker-compose.yml</code> exposes Frontend on port 3000, Backend API on 3001, WebSocket on 3002, PostgreSQL on 5432, Redis on 6379, Prometheus on 9090, and Grafana on 3003. (The minimal compose maps the backend to host ports 3011/3012 and the frontend to 3010.)</p>
+<h2>Serverless</h2>
 <ol>
   <li>Set <code>ENABLE_WS=false</code> in backend environment</li>
   <li>Set <code>VITE_WS_URL=</code> (empty) in frontend environment</li>
-  <li>Deploy via <code>vercel deploy</code> or connect your GitHub repo</li>
+  <li>Build each service from its Dockerfile and deploy to Railway (see <code>infrastructure/railway/README.md</code>)</li>
 </ol>
-<pre><code>node build-vercel.mjs</code></pre>
 <h2>Contract deployment</h2>
-<pre><code># Deploy to Conflux eSpace Testnet
+<pre><code># Deploy to Conflux eSpace Testnet (writes deployment/confluxTestnet.json)
 npm run deploy:conflux-testnet
 
 # Verify on ConfluxScan
 npm run verify:conflux-testnet
 
-# Write deployment addresses to JSON
-npx ts-node scripts/write-deployment.ts</code></pre>
+# List markets after deploy
+npm run setup:market</code></pre>
 <h2>Kubernetes (production)</h2>
-<p>Kubernetes manifests are available in <code>infrastructure/kubernetes/</code> for production-grade deployments with horizontal scaling, health checks, and monitoring via Prometheus/Grafana.</p>
+<p>Kubernetes manifests are available in <code>infrastructure/kubernetes/</code> for production-grade deployments with health checks and Prometheus/Grafana monitoring under <code>infrastructure/monitoring/</code>.</p>
 `;
 
 PAGES['testing'] = () => `
@@ -836,21 +962,21 @@ npm run test
 npx hardhat coverage</code></pre>
 <p>Tests are organized in <code>test/</code>:</p>
 <ul>
-  <li><code>test/core/</code> — TradingCore, VaultCore, OracleAggregator unit tests</li>
-  <li><code>test/scenarios/</code> — End-to-end trading scenarios</li>
-  <li><code>test/security/</code> — Attack vector tests (flash loans, reentrancy, oracle manipulation)</li>
-  <li><code>test/fuzz/</code> — Property-based fuzz tests</li>
-  <li><code>test/e2e/</code> — Full protocol integration tests</li>
+  <li><code>test/unit/</code> — Per-contract unit tests (TradingCore, VaultCore, OracleAggregator, PositionToken, CollateralRegistry, CopyRegistry, ReferralRegistry, DividendManager, MarketCalendar, libraries, …)</li>
+  <li><code>test/integration/</code> — TradingCore lifecycle, orders, liquidation, and admin flows</li>
+  <li><code>test/security/</code> — Attack-vector and accounting-invariant tests</li>
+  <li><code>test/fuzz/</code> — Property-based fuzz tests (e.g. PositionMath)</li>
+  <li><code>test/e2e/</code> — Full-protocol end-to-end scenario tests</li>
 </ul>
 <h2>Backend tests</h2>
 <pre><code>cd backend && npm test</code></pre>
 <p>Uses Jest. Tests cover REST API endpoints, event ingestion logic, and service layer functions.</p>
 <h2>Frontend tests</h2>
-<pre><code>cd frontend && npm test</code></pre>
-<p>Uses Vitest + Testing Library. Tests cover component rendering, wallet interactions, and data formatting.</p>
-<h2>E2E tests</h2>
-<pre><code>cd frontend && npx playwright test</code></pre>
-<p>Playwright tests simulate full user flows: connecting wallet, minting USDC, opening positions, and closing them.</p>
+<pre><code>cd frontend && npm test   # vitest run</code></pre>
+<p>Uses Vitest + Testing Library. Tests cover component rendering, page logic, wallet interactions, and data formatting.</p>
+<h2>End-to-end protocol tests</h2>
+<pre><code>npm run test   # includes test/e2e/FullProtocol.scenario.test.ts</code></pre>
+<p>The Hardhat suite includes a full-protocol scenario in <code>test/e2e/</code> that exercises deposit → open → execute → close → liquidate across the deployed contract set.</p>
 `;
 
 PAGES['security'] = () => `
@@ -879,17 +1005,20 @@ PAGES['security'] = () => `
 <table>
   <thead><tr><th>Role</th><th>Permissions</th></tr></thead>
   <tbody>
-    <tr><td><code>DEFAULT_ADMIN_ROLE</code></td><td>Grant/revoke other roles</td></tr>
-    <tr><td><code>KEEPER_ROLE</code></td><td>Execute orders and liquidations</td></tr>
-    <tr><td><code>OPERATOR_ROLE</code></td><td>Add/update markets, configure parameters</td></tr>
-    <tr><td><code>UPGRADER_ROLE</code></td><td>Upgrade contract implementations (UUPS)</td></tr>
-    <tr><td><code>GUARDIAN_ROLE</code></td><td>Activate emergency mode, pause markets</td></tr>
+    <tr><td><code>DEFAULT_ADMIN_ROLE</code> / <code>ADMIN_ROLE</code></td><td>Grant/revoke roles, admin config, UUPS upgrades, unpause</td></tr>
+    <tr><td><code>OPERATOR_ROLE</code></td><td>Add/update markets, configure feeds and caps</td></tr>
+    <tr><td><code>GUARDIAN_ROLE</code></td><td>Pause, circuit breakers, emergency price/pause</td></tr>
+    <tr><td><code>ORACLE_ROLE</code></td><td>Price / Hermes relay and TWAP recording</td></tr>
+    <tr><td><code>KEEPER_ROLE</code></td><td>Execute orders, health updates, TWAP samples</td></tr>
+    <tr><td><code>LIQUIDATOR_ROLE</code></td><td>Liquidation bots</td></tr>
+    <tr><td><code>TRADING_CORE_ROLE</code></td><td>Held only by the TradingCore proxy on VaultCore (borrow/repay)</td></tr>
   </tbody>
 </table>
+<p>There is no separate <code>UPGRADER_ROLE</code> — UUPS upgrades are authorized by the admin role.</p>
 <h2>Known limitations</h2>
 <ul>
   <li><strong>Single indexer:</strong> Protocol database sync relies on a single PostgreSQL indexer. Under extreme load, transient lag may cause minor frontend staleness.</li>
-  <li><strong>Isolated margin only:</strong> Cross-margin mode is not yet implemented.</li>
+  <li><strong>No third-party audit yet:</strong> The protocol is testnet-only and has not completed a formal external audit.</li>
   <li><strong>Testnet oracle fragility:</strong> Public Pyth Hermes endpoints on testnet may have higher latency than mainnet dedicated infrastructure.</li>
 </ul>
 <h2>Responsible disclosure</h2>
@@ -905,7 +1034,7 @@ PAGES['glossary'] = () => `
 <div class="glossary-term"><div class="glossary-term__name">BPS (Basis Points)</div><div class="glossary-term__def">One hundredth of a percent. 100 BPS = 1%. Used for fee rates, margin requirements, and slippage tolerances.</div></div>
 <div class="glossary-letter">C</div>
 <div class="glossary-term"><div class="glossary-term__name">Circuit breaker</div><div class="glossary-term__def">An automatic mechanism that halts trading on a market when anomalous conditions are detected.</div></div>
-<div class="glossary-term"><div class="glossary-term__name">Collateral</div><div class="glossary-term__def">USDC deposited by a trader to back a leveraged position. Determines the liquidation threshold.</div></div>
+<div class="glossary-term"><div class="glossary-term__name">Collateral</div><div class="glossary-term__def">USDT0 deposited by a trader to back a leveraged position. Determines the liquidation threshold.</div></div>
 <div class="glossary-term"><div class="glossary-term__name">Conflux eSpace</div><div class="glossary-term__def">The EVM-compatible execution space on the Conflux network. Supports standard Ethereum tooling with sub-cent gas fees.</div></div>
 <div class="glossary-letter">F</div>
 <div class="glossary-term"><div class="glossary-term__name">Funding rate</div><div class="glossary-term__def">A periodic payment between long and short position holders that keeps perpetual prices aligned with spot. Settled every 8 hours on Realyx.</div></div>
@@ -913,13 +1042,13 @@ PAGES['glossary'] = () => `
 <div class="glossary-term"><div class="glossary-term__name">Health factor</div><div class="glossary-term__def">A measure of how close a position is to liquidation. Calculated as (collateral + unrealized PnL) / (notional × maintenance margin rate).</div></div>
 <div class="glossary-term"><div class="glossary-term__name">Hermes</div><div class="glossary-term__def">Pyth Network's off-chain price service API. Keepers fetch signed price updates (VAAs) from Hermes.</div></div>
 <div class="glossary-letter">I</div>
-<div class="glossary-term"><div class="glossary-term__name">Insurance fund</div><div class="glossary-term__def">A separate USDC pool within VaultCore that absorbs bad debt before it affects LP deposits.</div></div>
+<div class="glossary-term"><div class="glossary-term__name">Insurance fund</div><div class="glossary-term__def">A separate USDT0 pool within VaultCore that absorbs bad debt before it affects LP deposits.</div></div>
 <div class="glossary-term"><div class="glossary-term__name">Intent</div><div class="glossary-term__def">A signed order request that declares trading intent without specifying execution price. Keepers fill intents with fresh oracle prices.</div></div>
 <div class="glossary-letter">K</div>
 <div class="glossary-term"><div class="glossary-term__name">Keeper</div><div class="glossary-term__def">An off-chain bot that monitors pending orders and executes them by providing fresh oracle data. Earns execution fees.</div></div>
 <div class="glossary-letter">L</div>
 <div class="glossary-term"><div class="glossary-term__name">Leverage</div><div class="glossary-term__def">The multiplier applied to collateral to determine position size. 10x leverage means $100 collateral controls a $1,000 position.</div></div>
-<div class="glossary-term"><div class="glossary-term__name">LP (Liquidity Provider)</div><div class="glossary-term__def">A user who deposits USDC into the vault, earning fees in exchange for acting as counterparty to traders.</div></div>
+<div class="glossary-term"><div class="glossary-term__name">LP (Liquidity Provider)</div><div class="glossary-term__def">A user who deposits USDT0 into the vault, earning fees in exchange for acting as counterparty to traders.</div></div>
 <div class="glossary-letter">M</div>
 <div class="glossary-term"><div class="glossary-term__name">MEV (Miner Extractable Value)</div><div class="glossary-term__def">Value extracted by block producers through transaction ordering. Realyx's intent model prevents MEV extraction.</div></div>
 <div class="glossary-letter">P</div>
@@ -928,13 +1057,15 @@ PAGES['glossary'] = () => `
 <div class="glossary-letter">R</div>
 <div class="glossary-term"><div class="glossary-term__name">realyxLP</div><div class="glossary-term__def">The LP share token representing fractional ownership of the vault's assets.</div></div>
 <div class="glossary-term"><div class="glossary-term__name">RWA (Real World Asset)</div><div class="glossary-term__def">Traditional financial assets (stocks, commodities, forex) represented on-chain. Realyx enables perpetual trading on RWAs.</div></div>
+<div class="glossary-letter">S</div>
+<div class="glossary-term"><div class="glossary-term__name">Subaccount (delegated trading)</div><div class="glossary-term__def">A bot wallet authorized via <code>addSubaccount</code> to place and manage orders on behalf of an owner. The bot signs and pays gas; the owner is charged collateral and receives the position. Non-custodial and revocable at any time. Powers automation and copy trading.</div></div>
 <div class="glossary-letter">T</div>
-<div class="glossary-term"><div class="glossary-term__name">TVL (Total Value Locked)</div><div class="glossary-term__def">The total USDC deposited in the vault by liquidity providers.</div></div>
+<div class="glossary-term"><div class="glossary-term__name">TVL (Total Value Locked)</div><div class="glossary-term__def">The total USDT0 deposited in the vault by liquidity providers.</div></div>
 <div class="glossary-letter">U</div>
 <div class="glossary-term"><div class="glossary-term__name">UUPS (Universal Upgradeable Proxy Standard)</div><div class="glossary-term__def">A proxy pattern where upgrade logic lives in the implementation contract. Used by all Realyx core contracts.</div></div>
 <div class="glossary-letter">V</div>
 <div class="glossary-term"><div class="glossary-term__name">VAA (Verifiable Action Approval)</div><div class="glossary-term__def">Pyth's signed price attestation format. Keepers submit VAAs to update on-chain prices during order execution.</div></div>
-<div class="glossary-term"><div class="glossary-term__name">Vault</div><div class="glossary-term__def">The shared USDC liquidity pool (VaultCore) that acts as counterparty to all trades.</div></div>
+<div class="glossary-term"><div class="glossary-term__name">Vault</div><div class="glossary-term__def">The shared USDT0 liquidity pool (VaultCore) that acts as counterparty to all trades.</div></div>
 `;
 
 PAGES['roadmap'] = () => `
@@ -944,7 +1075,10 @@ PAGES['roadmap'] = () => `
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Core smart contracts — TradingCore, VaultCore, OracleAggregator, PositionToken</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Hardhat test cases across core, fuzz, security &amp; e2e suites</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">PostgreSQL native EVM indexer tracking 15+ on-chain events</div></div>
-  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Full-stack frontend — Markets, Trading, Portfolio, Vault, Analytics, Settings</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Full-stack frontend — Markets, Trading, Portfolio, Vault, Insurance, Leaderboard, Copy Trading, Trader Profile, Referrals, Analytics, Status, Settings (installable PWA)</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Cross-margin risk engine (on by default) with account-level health</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Social layer — copy trading (CopyRegistry) &amp; referral rebates (ReferralRegistry)</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">RWA tooling — MarketCalendar trading hours, DividendManager corporate actions, optional compliance gating</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Keeper bot for decentralised order execution</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--done">✓</div><div class="roadmap-item__text">Deployed to Conflux eSpace Testnet (Chain ID 71)</div></div>
 </div>
@@ -952,15 +1086,14 @@ PAGES['roadmap'] = () => `
   <div class="roadmap-phase__header"><div class="roadmap-phase__title">Phase 2 · Post-Hackathon</div><span class="badge badge--yellow">Planned</span></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Independent smart-contract security audit</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Conflux eSpace Mainnet launch (Chain ID 1030)</div></div>
-  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Multi-collateral support — USDT0 &amp; AxCNH</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Live multi-collateral support — USDC &amp; AxCNH via CollateralRegistry (USDT0 stays the canonical settlement asset)</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Liquidity mining programme for early <code>realyxLP</code> depositors</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Public Keeper node — anyone can execute orders and earn bounties</div></div>
 </div>
 <div class="roadmap-phase">
   <div class="roadmap-phase__header"><div class="roadmap-phase__title">Phase 3 · Scale</div><span class="badge badge--blue">Future</span></div>
-  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Cross-margin architecture across all open positions</div></div>
-  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Social copy-trading — auto-mirror top leaderboard wallets</div></div>
-  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Expanded RWA markets — Forex, commodities, additional equities</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Deeper copy-trading automation and on-chain trader-profile metadata</div></div>
+  <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Expanded RWA markets — Forex, more commodities and equities</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Governance module for community-driven parameter updates</div></div>
   <div class="roadmap-item"><div class="roadmap-item__check roadmap-item__check--todo">○</div><div class="roadmap-item__text">Mobile-optimised trading interface</div></div>
 </div>
@@ -1012,6 +1145,7 @@ const SEARCH_INDEX = [
   { page: 'intent-execution', title: 'Intent-Based Execution', section: 'Core Concepts' },
   { page: 'funding-rates', title: 'Funding Rates', section: 'Core Concepts' },
   { page: 'liquidation', title: 'Liquidation Engine', section: 'Core Concepts' },
+  { page: 'social-rwa', title: 'Social & RWA Features', section: 'Core Concepts' },
   { page: 'trading-guide', title: 'Trading Guide', section: 'User Guides' },
   { page: 'providing-liquidity', title: 'Providing Liquidity', section: 'User Guides' },
   { page: 'nft-positions', title: 'NFT Positions', section: 'User Guides' },
@@ -1022,6 +1156,7 @@ const SEARCH_INDEX = [
   { page: 'architecture', title: 'Architecture', section: 'Developer Guide' },
   { page: 'smart-contracts', title: 'Smart Contracts', section: 'Developer Guide' },
   { page: 'api-reference', title: 'API Reference', section: 'Developer Guide' },
+  { page: 'sdk', title: 'Strategy SDK', section: 'Developer Guide' },
   { page: 'keeper-node', title: 'Keeper Node', section: 'Developer Guide' },
   { page: 'deployment', title: 'Deployment', section: 'Developer Guide' },
   { page: 'testing', title: 'Testing', section: 'Developer Guide' },
