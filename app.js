@@ -15,7 +15,7 @@ PAGES['home'] = () => `
   <h1 class="home-hero__title">Realyx <span class="gradient">Documentation</span></h1>
   <p class="home-hero__desc">Realyx is a decentralized perpetual futures exchange for Real World Assets, built on Conflux eSpace. Trade crypto, equities, and commodities with up to 100x leverage — non-custodial, zero KYC, MEV-resistant.</p>
   <div class="home-hero__actions">
-    <a href="https://app.realyx.example/" target="_blank" rel="noopener" class="btn-primary">
+    <a href="https://app.realyx.xyz/" target="_blank" rel="noopener" class="btn-primary">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="5 3 19 12 5 21 5 3"/></svg>
       Launch App
     </a>
@@ -216,7 +216,7 @@ PAGES['first-trade'] = () => `
   <div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Install MetaMask or Fluent Wallet</h3><p>Any EVM-compatible wallet works. MetaMask is recommended.</p></div></div>
   <div class="step-item"><div class="step-num">2</div><div class="step-body"><h3>Add Conflux eSpace Testnet</h3><table><tbody><tr><td><strong>RPC URL</strong></td><td><code>https://evmtestnet.confluxrpc.com</code></td></tr><tr><td><strong>Chain ID</strong></td><td><code>71</code></td></tr><tr><td><strong>Currency</strong></td><td>CFX</td></tr></tbody></table></div></div>
   <div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Get testnet CFX for gas</h3><p>Visit the <a href="https://efaucet.confluxnetwork.org/" target="_blank">Conflux eSpace faucet</a> and request free CFX.</p></div></div>
-  <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Connect wallet on Realyx</h3><p>Open <a href="https://app.realyx.example/" target="_blank">app.realyx.example</a> and click Connect Wallet.</p></div></div>
+  <div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Connect wallet on Realyx</h3><p>Open <a href="https://app.realyx.xyz/" target="_blank">app.realyx.xyz</a> and click Connect Wallet.</p></div></div>
 </div>
 <h2>Step 2: Mint testnet USDT0</h2>
 <ol>
@@ -867,7 +867,7 @@ PAGES['sdk'] = () => `
 <pre><code>import { RealyxClient } from "@realyx/sdk";
 
 const client = new RealyxClient({
-  apiBaseUrl: "https://app.realyx.example",
+  apiBaseUrl: "https://app.realyx.xyz",
   // wsUrl defaults to apiBaseUrl with http→ws + "/ws"
   // signer or subaccount required only for trading
 });

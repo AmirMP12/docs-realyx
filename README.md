@@ -1,6 +1,6 @@
 # Realyx Docs
 
-Official documentation site for [Realyx](https://app.realyx.example/) — a decentralized perpetual futures exchange for Real World Assets, built on Conflux eSpace.
+Official documentation site for [Realyx](https://app.realyx.xyz/) — a decentralized perpetual futures exchange for Real World Assets, built on Conflux eSpace.
 
 A lightweight, fully static single-page docs app. No build step, no framework, no dependencies. Just HTML, CSS, and vanilla JavaScript.
 
@@ -101,7 +101,7 @@ Modern evergreen browsers (Chrome, Firefox, Safari, Edge). Uses CSS custom prope
 
 ## Links
 
-- App: https://app.realyx.example/
+- App: https://app.realyx.xyz/
 - Source: https://github.com/AmirMP12/realyx-perp-conflux
 - X: https://x.com/Realyx_Perp
 - Telegram: https://t.me/Real_yx
